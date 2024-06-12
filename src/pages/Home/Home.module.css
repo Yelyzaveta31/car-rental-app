@@ -1,0 +1,35 @@
+body {
+    background-image: url(./image/2010.i123.005..car\ headlights\ AD\ composition.jpg);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-attachment: fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+  }
+  
+  .title {
+    font-size: 60px;
+    text-align: center;
+    margin-top: 80px;
+  }
+  
+  .text {
+    font-size: 30px;
+    text-align: center;
+  }
+  .button {
+    width: 130px;
+    display: block;
+    margin: 0 auto;
+color:white;
+background-color: inherit;
+border: 2px solid white;
+cursor: pointer;
+  }
+
+  .button:hover,
+  .button:focus {
+    color: rgb(44, 44, 252)
+  }

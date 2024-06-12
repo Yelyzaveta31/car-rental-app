@@ -1,0 +1,25 @@
+.nav {
+    display: flex;
+    gap: 10px;
+    
+  }
+
+  header{
+    padding: 20px;
+    padding-left: 35px;
+    position: sticky;
+    top: 0;
+    box-shadow: 1px 0px 5px 5px #15037d
+  }
+
+  .link{
+    color: white;
+    font-size: 20px;
+    text-decoration: none;
+    font-weight: 300px;
+  }
+
+  .link:hover,
+  .link:focus {
+    color: rgb(44, 44, 252)
+  }
