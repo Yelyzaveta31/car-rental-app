@@ -16,7 +16,7 @@ export const fetchCarsThunk = createAsyncThunk(
     }
 );
 
-export const fetchCarsPagThunk = createAsyncThunk(
+export const fetchCarsPaginationThunk = createAsyncThunk(
     "cars/FetchCarsPag",
     async({page}, thunkApi) => {
         try {

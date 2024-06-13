@@ -17,8 +17,8 @@ const AppBar = () => {
         <NavLink className={activeClass} to="/catalog">
           Catalog
         </NavLink>
-        <NavLink className={activeClass} to="/favorite">
-          Favorite
+        <NavLink className={activeClass} to="/favorites">
+          Favorites
         </NavLink>
       </nav>
     </header>
