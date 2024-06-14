@@ -1,26 +1,19 @@
 import { useSelector } from 'react-redux';
-import { selectBrands } from '../../redux/cars/slice';
-import s from './SearchBar.module.css';
+import s from "./SearchBar.module.css";
 import Select from 'react-select';
 import { useState } from 'react';
-import { selectQuery } from '../../redux/cars/selectors';
+import { selectBrands } from '../../redux/cars/selectors';
 import { SearchBarStyles } from './SearchBarStyles';
 
 const SearchBar = ({ onFilter }) => {
- const query = useSelector(selectQuery);
   const carBrands = useSelector(selectBrands);
   const [selectedBrand, setSelectedBrand] = useState(null);
 
-  const carOptions = carBrands.map(brand => ({ value: brand, label: brand }));
-
+  const carOptions = carBrands ? carBrands.map(brand => ({ value: brand, label: brand })) : [];
 
   const handleChange = selectedOption => {
     setSelectedBrand(selectedOption);
   };
-
-  const defaultOption = carOptions.find(
-    (item) => item.value === query.make
-  ) || { value: "", label: "All brands" };
 
   const handleSubmit = () => {
     if (selectedBrand) {
@@ -31,8 +24,7 @@ const SearchBar = ({ onFilter }) => {
   return (
     <div className={s.search_bar}>
       <Select
-         options={carOptions }
-        defaultValue={defaultOption}
+        options={carOptions}
         onChange={handleChange}
         styles={SearchBarStyles}
         placeholder={'Write a brand'}

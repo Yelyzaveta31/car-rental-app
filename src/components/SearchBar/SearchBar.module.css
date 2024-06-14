@@ -21,7 +21,7 @@
     background-color: var(--hover-blue);
   }
   
-  .searchWrapper {
+  .search_bar {
     display: flex;
   
     gap: 18px;

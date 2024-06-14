@@ -9,6 +9,7 @@ import Button from "../Button/Button";
 import Modal from "../Modal/Modal";
 
 const CarsItem = ({item}) => {
+  if (!item) return null; 
   const {
     id,
     year,
