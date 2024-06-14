@@ -2,19 +2,19 @@ import { createSlice, isAnyOf } from "@reduxjs/toolkit";
 import { fetchCarsPaginationThunk, fetchCarsThunk } from "./operations";
 
 const initialState = {
-  cars: [],
+  cars:[],
   carBrands: [],
   filteredCars: [],
   page: 1,
   limit: 12,
-  totalPage: 32,
+  total: 0,
   favorites: [],
   favoritesId: [],
   isLoading: false,
   isError: false,
 };
 
-const slice = createSlice({
+const carsSlice = createSlice({
   name: "cars",
   initialState,
   reducers: {
@@ -36,15 +36,15 @@ const slice = createSlice({
       state.filteredCars = action.payload;
     },
     setTotal: (state, action) => {
-      state.total = action.payload;
+      state.total = action.payload; // Оновлено total на payload
     },
-
   },
   extraReducers: (builder) => {
     builder
-      .addCase(fetchCarsThunk.fulfilled, (state, { payload: { data, page, limit } }) => {
+      .addCase(fetchCarsThunk.fulfilled, (state, { payload: { data, page, limit, total } }) => {
         state.page = page;
         state.limit = limit;
+        state.total = total; // Оновлено total з response payload
         state.cars = page === 1 ? data : [...state.cars, ...data];
         state.isLoading = false;
       })
@@ -74,5 +74,5 @@ const slice = createSlice({
   },
 });
 
-export const { toggleFavorite, setPage,  setFilteredCars, setTotal } = slice.actions;
-export const carsReducer = slice.reducer;
+export const { toggleFavorite, setPage, setFilteredCars, setTotal } = carsSlice.actions;
+export const carsReducer = carsSlice.reducer;

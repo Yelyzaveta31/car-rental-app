@@ -2,16 +2,15 @@
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
-  background-color: #242424;
-  color: white;
+  background-color: #ffffff;
+  color: black;
 }
 
 a {
   font-weight: 500;
   text-decoration: inherit;
-  margin-top: 10px;
   padding: 5px;
-  color: white;
+  color: black;
 }
 a:hover {
   color: rgb(44, 44, 252)
@@ -25,7 +24,7 @@ body {
   margin: 0;
   place-items: center;
   min-height: 100vh;
-  background-image: url(/src/pages/Home/image/1674656935_top-fon-com-p-tachki-fon-dlya-prezentatsii-84.jpg);
+  background-color: var(--white);
 }
 
 h1 {

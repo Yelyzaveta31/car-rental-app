@@ -1,12 +1,16 @@
-body {
-    background-image: url(./image/2010.i123.005..car\ headlights\ AD\ composition.jpg);
+.container {
+  background-color: var(--white);
+    background-image: url(./image//1674656935_top-fon-com-p-tachki-fon-dlya-prezentatsii-84.jpg);
     background-repeat: no-repeat;
     background-position: center center;
     background-attachment: fixed;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
     background-size: cover;
+    width: 100%;
+  height: calc(100vh - 60px);
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  color: white;
   }
   
   .title {
