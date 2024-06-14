@@ -5,6 +5,8 @@ import { MdOutlineFavorite } from "react-icons/md";
 import { GrFavorite } from "react-icons/gr";
 import s from "./CarsItem.module.css"
 import { selectFavorites } from "../../redux/cars/selectors";
+import Button from "../Button/Button";
+import Modal from "../Modal/Modal";
 
 const CarsItem = ({item}) => {
   const {

@@ -7,3 +7,6 @@ export const selectFavoritesId = state => state.cars.favoritesId;
 export const  selectIsLoading = state => state.isLoading;
 export const  selectIsError= state => state.isError
 export const selectQuery = state => state.cars.query;
+export const selectBrand= state => state.selectedBrand;
+export const selectFilteredCars = state => state.filteredCars;
+export const selectTotal = state => state.total;

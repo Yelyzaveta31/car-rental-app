@@ -33,6 +33,12 @@ const slice = createSlice({
             setPage: (state, action) => {
               state.page = action.payload;
             },
+    setFilteredCars: (state, action) => {
+      state.filteredCars = action.payload;
+    }, 
+    setTotal: (state, action) => {
+      state.total = action.payload;
+    },
           },
         extraReducers: builder => {
 builder
@@ -68,5 +74,5 @@ builder
 },
 });
 
-export const { toggleFavorite, setPage } = slice.actions;
+export const { toggleFavorite, setPage, setFilteredCars, setTotal  } = slice.actions;
 export const carsReducer = slice.reducer;

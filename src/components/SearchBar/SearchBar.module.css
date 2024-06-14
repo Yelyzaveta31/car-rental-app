@@ -1,0 +1,65 @@
+.submitBtn {
+    cursor: pointer;
+    border: none;
+    border-color: transparent;
+    background-color: var(--blue);
+    border-radius: 12px;
+    min-width: 100px;
+    min-height: 48px;
+    padding: 14px 40px;
+  
+    color: var(--white);
+    font-weight: 200;
+    font-size: 14px;
+    line-height: 20px;
+  
+    transition: background-color var(--transition-pattern);
+  }
+  
+  .submitButton:hover,
+  .submitButton:focus {
+    background-color: var(--hover-blue);
+  }
+  
+  .searchWrapper {
+    display: flex;
+  
+    gap: 18px;
+    align-items: flex-end;
+    justify-content: center;
+  }
+  
+  .form {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    align-items: flex-start;
+  }
+  
+  .label {
+    color: #8a8a89;
+    font-family: var(--font-family);
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 18px;
+  }
+  
+  .select {
+    border: none;
+    border-radius: 14px;
+    background: #f7f7fb;
+    padding: 0px 18px;
+  
+    min-height: 48px;
+    outline: none;
+  }
+  
+  .make {
+    color: #121417;
+    font-family: var(--font-family);
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 20px;
+  }
