@@ -4,16 +4,14 @@
   
     border-radius: 12px;
     padding: 12px;
-  
-    background-color: var(--btn-background);
+    background-color: var(--blue);
     font-family: var(--font-family);
     font-weight: 500;
     font-size: 12px;
     line-height: 1.4;
 }
 
-
 .btn:hover,
 .btn:focus {
-  color: rgb(44, 44, 252)
+  color: var(--hover-blue);
 }

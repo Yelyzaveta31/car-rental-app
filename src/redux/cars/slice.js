@@ -1,13 +1,35 @@
-import { createSlice, isAnyOf } from "@reduxjs/toolkit";
-import { fetchCarsPaginationThunk, fetchCarsThunk } from "./operations";
+import { createSlice } from "@reduxjs/toolkit";
+import { fetchCarsThunk } from "./operations";
 
 const initialState = {
   cars:[],
-  carBrands: [],
+  carBrands: [
+    'Lincoln',
+    'GMC',
+    'Hyundai',
+    'MINI',
+    'Bentley',
+    'Aston Martin',
+    'Pontiac',
+    'Lamborghini',
+    'Buick',
+    'Volvo',
+    'HUMMER',
+    'Subaru',
+    'Mitsubishi',
+    'Nissan',
+    'Mercedes-Benz',
+    'Audi',
+    'BMW',
+    'Chevrolet',
+    'Chrysler',
+    'Kia',
+    'Land Rover',
+  ],
   filteredCars: [],
   page: 1,
   limit: 12,
-  total: 0,
+  total: 32,
   favorites: [],
   favoritesId: [],
   isLoading: false,
@@ -36,7 +58,7 @@ const carsSlice = createSlice({
       state.filteredCars = action.payload;
     },
     setTotal: (state, action) => {
-      state.total = action.payload; // Оновлено total на payload
+      state.total = action.payload; 
     },
   },
   extraReducers: (builder) => {
@@ -44,34 +66,19 @@ const carsSlice = createSlice({
       .addCase(fetchCarsThunk.fulfilled, (state, { payload: { data, page, limit, total } }) => {
         state.page = page;
         state.limit = limit;
-        state.total = total; // Оновлено total з response payload
+        state.total = total;
         state.cars = page === 1 ? data : [...state.cars, ...data];
         state.isLoading = false;
       })
-      .addCase(fetchCarsPaginationThunk.fulfilled, (state, { payload }) => {
-        state.cars = [...state.cars, ...payload];
+      .addCase(fetchCarsThunk.pending, state => {
+        state.isLoading=true;
+        state.isError=false;
       })
-      .addMatcher(
-        isAnyOf(fetchCarsPaginationThunk.pending, fetchCarsThunk.pending),
-        (state) => {
-          state.isError = false;
-          state.isLoading = true;
-        }
-      )
-      .addMatcher(
-        isAnyOf(fetchCarsPaginationThunk.rejected, fetchCarsThunk.rejected),
-        (state) => {
-          state.isError = true;
-          state.isLoading = false;
-        }
-      )
-      .addMatcher(
-        isAnyOf(fetchCarsPaginationThunk.fulfilled, fetchCarsThunk.fulfilled),
-        (state) => {
-          state.isLoading = false;
-        }
-      );
-  },
+      .addCase(fetchCarsThunk.rejected, (state, { payload }) => {
+        state.isError = payload;
+        state.isLoading = false;
+      })
+    },
 });
 
 export const { toggleFavorite, setPage, setFilteredCars, setTotal } = carsSlice.actions;

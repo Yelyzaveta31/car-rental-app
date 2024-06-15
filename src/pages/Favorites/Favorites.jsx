@@ -5,19 +5,16 @@ import s from "./Favorites.module.css";
 
 const Favorites = () => {
   const favoritesCars = useSelector(selectFavorites);
-  
   return (
     <div className={s.container}>
       {favoritesCars.length > 0 ? (
         <ul className={s.list}>
-          {favoritesCars.map(car => (
-            <li key={car.id} className={s.item}>
-              <CarsItem car={car} />
-            </li>
-          ))}
+          {favoritesCars.map((car) => {
+return <CarsItem car={car} key={car.id} />
+})}
         </ul>
       ) : (
-        <p className={s.emptyMessage}>No favorites selected.</p>
+        <p className={s.message}>No favorites selected.</p>
       )}
     </div>
   );

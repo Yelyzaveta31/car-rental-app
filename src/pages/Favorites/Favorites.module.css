@@ -1,14 +1,11 @@
 .list {
-    display: flex;
     flex-wrap: wrap;
-  }
-
-  .container {
     padding-top: 20px;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     justify-content: center;
     align-items: center;
     width: 100%;
     gap: 50px;
   }
+

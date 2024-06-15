@@ -1,0 +1,146 @@
+.card {
+    min-height: auto;
+    max-width: 459px;
+    display: flex;
+    flex-direction: column;
+  
+    gap: 14px;
+  }
+  .span {
+    color: var(--blue);
+  }
+  
+  .img {
+    max-width: 100%;
+    max-height: 220px;
+    object-fit: cover;
+    border-radius: 6px;
+  }
+  .content {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+
+   
+  .list {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+  
+    justify-content: flex-start;
+    column-gap: 12px;
+    row-gap: 4px;
+  }
+  
+  .block {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  .description {
+    color: var(--black);
+    font-family: var(--font-family);
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 20px;
+  }
+  
+  .details {
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+    max-width: 350px;
+  }
+ 
+  .listWrapper {
+    display: flex;
+    flex-direction: column;
+    width: 461px;
+    row-gap: 4px;
+  }
+  
+  .title {
+    color: var(--black);
+    font-family: var(--font-family);
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 24px;
+  }
+  .feature {
+    color: var(--gray);
+    font-family: var(--font-family);
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 18px;
+  }
+  
+  .item {
+    position: relative;
+  }
+  
+  .item:not(:last-child)::after {
+    display: inline-block;
+    content: '';
+    position: absolute;
+    top: 0;
+    right: -6px;
+    background-color: rgba(18, 20, 23, 0.1);
+    height: 16px;
+    width: 1px;
+  }
+
+
+    
+  .condition {
+    background-color: #f9f9f9;
+    border: none;
+    border-radius: 35px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 7px 14px;
+  }
+  
+  
+  .heading {
+    color: var(--black);
+    font-family: var(--font-family);
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 20px;
+  }
+
+  .name {
+    color: #363535;
+    font-family: var(--font-family);
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 18px;
+  }
+  
+  .rent {
+    cursor: pointer;
+    border: none;
+    border-color: transparent;
+    background-color: var(--blue);
+    border-radius: 12px;
+  
+    padding: 12px 50px;
+    color: var(--white);
+    font-weight: 200;
+    font-size: 14px;
+    line-height: 20px;
+    text-decoration: none;
+    transition: background-color var(--transition-pattern);
+  }
+  
+  .rent:hover,
+  .rent:focus {
+    background-color: var(--hover-blue);
+  }

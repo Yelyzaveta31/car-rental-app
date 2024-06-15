@@ -2,8 +2,9 @@ import { useEffect } from "react";
 import s from "./Modal.module.css";
 import clsx from "clsx";
 import { IoMdCloseCircleOutline } from "react-icons/io";
+import CarDetails from "../CarDetails/CarDetails";
 
-const Modal = ({ children, onClose, className }) => {
+const Modal = ({  onClose, className, car }) => {
   const handleBackDropClick = (e) => {
     if (e.target === e.currentTarget) {
       onClose();
@@ -26,9 +27,9 @@ const Modal = ({ children, onClose, className }) => {
     <div className={s.wrapper} onClick={handleBackDropClick}>
       <div className={clsx(s.content, className)}>
         <button className={s.closeBtn} onClick={onClose}>
-          <IoMdCloseCircleOutline width={24} heught={24} />
+          <IoMdCloseCircleOutline width={24} height={24} />
         </button>
-        {children}
+    <CarDetails car={car} />
       </div>
     </div>
   );

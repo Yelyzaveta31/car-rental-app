@@ -3,13 +3,15 @@ import s from "./SearchBar.module.css";
 import Select from 'react-select';
 import { useState } from 'react';
 import { SearchBarStyles } from './SearchBarStyles';
-import { selectSelectedBrand } from '../../redux/cars/selectors';
+import { selectBrands } from '../../redux/cars/selectors';
+
+
 
 const SearchBar = ({ onFilter }) => {
-  const carBrands = useSelector(selectSelectedBrand);
-  const [selectedBrand, setSelectedBrand] = useState(null);
+  const carBrands = useSelector(selectBrands);
+  const [selectedBrand,setSelectedBrand] = useState(null);
 
-  const carOptions = carBrands ? carBrands.map(brand => ({ value: brand, label: brand })) : [];
+  const carOptions = carBrands.map(brand => ({ value: brand, label: brand }));
 
   const handleChange = selectedOption => {
     setSelectedBrand(selectedOption);

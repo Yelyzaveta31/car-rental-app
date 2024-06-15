@@ -9,7 +9,8 @@
     position: sticky;
     top: 0;
     background-color: whitesmoke;
-    box-shadow: 1px 0px 5px 5px #15037d
+    box-shadow: 1px 0px 5px 5px #15037d;
+    z-index: 100;
   }
 
   .link{
