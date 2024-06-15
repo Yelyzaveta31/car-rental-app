@@ -3,12 +3,12 @@ import { useDispatch, useSelector } from "react-redux";
 import { MdOutlineFavorite } from "react-icons/md";
 import { GrFavorite } from "react-icons/gr";
 import s from "./CarsItem.module.css";
-import Button from "../Button/Button";
 import { toggleFavorite } from "../../redux/cars/slice";
 import { selectFavoritesId } from "../../redux/cars/selectors";
 import CarDetails from "../CarDetails/CarDetails";
+import LoadButton from "../Button/LoadButton";
 
-const CarsItem = ({ car }) => {
+const CarsItem = ({car}) => {
   const {
     address,
     functionalities,
@@ -83,9 +83,9 @@ const CarsItem = ({ car }) => {
             </ul>
           </div>
         </div>
-        <Button className={s.learnMore} onClick={openModal}>
+        <LoadButton className={s.learnMore} onClick={openModal}>
           Learn more
-        </Button>
+        </LoadButton>
         </li>
       {isOpen && <CarDetails onClose={closeModal} car={car} />}
     </>

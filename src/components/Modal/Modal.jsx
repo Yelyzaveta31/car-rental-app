@@ -29,7 +29,7 @@ const Modal = ({  onClose, className, car }) => {
         <button className={s.closeBtn} onClick={onClose}>
           <IoMdCloseCircleOutline width={24} height={24} />
         </button>
-    <CarDetails car={car} />
+    <CarDetails car={car} onClose={onClose} />
       </div>
     </div>
   );

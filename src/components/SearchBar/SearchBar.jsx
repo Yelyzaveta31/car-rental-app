@@ -1,15 +1,13 @@
-import { useSelector } from 'react-redux';
-import s from "./SearchBar.module.css";
-import Select from 'react-select';
 import { useState } from 'react';
+import { useSelector } from 'react-redux';
+import Select from 'react-select';
 import { SearchBarStyles } from './SearchBarStyles';
 import { selectBrands } from '../../redux/cars/selectors';
-
-
+import s from './SearchBar.module.css';
 
 const SearchBar = ({ onFilter }) => {
   const carBrands = useSelector(selectBrands);
-  const [selectedBrand,setSelectedBrand] = useState(null);
+  const [selectedBrand, setSelectedBrand] = useState(null);
 
   const carOptions = carBrands.map(brand => ({ value: brand, label: brand }));
 
@@ -29,9 +27,9 @@ const SearchBar = ({ onFilter }) => {
         options={carOptions}
         onChange={handleChange}
         styles={SearchBarStyles}
-        placeholder={'Write a brand'}
+        placeholder={'Select a brand'}
       />
-      <button onClick={handleSubmit} className={s.submitBtn} type="submit">
+      <button onClick={handleSubmit} className={s.submitBtn} type="button">
         Search
       </button>
     </div>

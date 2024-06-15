@@ -1,7 +1,7 @@
 import clsx from "clsx";
-import s from "./Button.module.css";
+import s from "./LoadButton.module.css";
 
-const Button = (props) => {
+const LoadButton = (props) => {
   return (
     <button
       {...props}
@@ -11,4 +11,4 @@ const Button = (props) => {
   );
 };
 
-export default Button;
+export default LoadButton;
