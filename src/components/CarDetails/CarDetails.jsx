@@ -1,6 +1,6 @@
 import s from "./CarDetails.module.css";
 
-const CarDetails = ({ car, onClose}) => {
+const CarDetails = ({ car, onClose }) => {
   const {
     id,
     year,
@@ -20,10 +20,10 @@ const CarDetails = ({ car, onClose}) => {
     age,
   } = car;
 
-  const [city, country] = address.split(",");
-  const conditions = rentalConditions.split("\n");
-  const formattedMileage = mileage.toLocaleString();
-  const ageNumber = age.split(" ");
+  const [city, country] = address ? address.split(",") : ["Unknown", "Unknown"];
+  const conditions = rentalConditions ? rentalConditions.split("\n") : [];
+  const formattedMileage = mileage ? mileage.toLocaleString() : "Unknown";
+  const ageNumber = age ? age.split(" ") : ["Unknown"];
 
   return (
     <div className={s.modal}>
@@ -67,13 +67,13 @@ const CarDetails = ({ car, onClose}) => {
             <h4 className={s.heading}>Accessories and functionality</h4>
             <div className={s.listWrapper}>
               <ul className={s.list}>
-                {accessories.map((car, idx) => (
-                  <li key={idx}>{car}</li>
+                {accessories.map((item, idx) => (
+                  <li key={idx}>{item}</li>
                 ))}
               </ul>
               <ul className={s.list}>
-                {functionalities.map((car, idx) => (
-                  <li key={idx}>{car}</li>
+                {functionalities.map((item, idx) => (
+                  <li key={idx}>{item}</li>
                 ))}
               </ul>
             </div>

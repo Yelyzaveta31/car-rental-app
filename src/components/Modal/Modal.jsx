@@ -4,7 +4,7 @@ import clsx from "clsx";
 import { IoMdCloseCircleOutline } from "react-icons/io";
 import CarDetails from "../CarDetails/CarDetails";
 
-const Modal = ({  onClose, className, car }) => {
+const Modal = ({ onClose, className, car }) => {
   const handleBackDropClick = (e) => {
     if (e.target === e.currentTarget) {
       onClose();
@@ -23,13 +23,14 @@ const Modal = ({  onClose, className, car }) => {
       document.removeEventListener("keydown", handleKeyDown);
     };
   }, [onClose]);
+
   return (
     <div className={s.wrapper} onClick={handleBackDropClick}>
       <div className={clsx(s.content, className)}>
         <button className={s.closeBtn} onClick={onClose}>
           <IoMdCloseCircleOutline width={24} height={24} />
         </button>
-    <CarDetails car={car} onClose={onClose} />
+        <CarDetails car={car} onClose={onClose}/>
       </div>
     </div>
   );

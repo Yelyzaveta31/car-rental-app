@@ -4,11 +4,11 @@ import { MdOutlineFavorite } from "react-icons/md";
 import { GrFavorite } from "react-icons/gr";
 import s from "./CarsItem.module.css";
 import { toggleFavorite } from "../../redux/cars/slice";
-import CarDetails from "../CarDetails/CarDetails";
+import Modal from "../Modal/Modal";
 import LoadButton from "../Button/LoadButton";
-import { selectFavoritesId } from "../../redux/cars/selectors";
+import { selectFavorites } from "../../redux/cars/selectors";
 
-const CarsItem = ({car}) => {
+const CarsItem = ({ car }) => {
   const {
     address,
     functionalities,
@@ -22,26 +22,25 @@ const CarsItem = ({car}) => {
     id,
   } = car;
 
-  
   const dispatch = useDispatch();
-  const [city, country] = address.split(",");
-  const favoritesId = useSelector(selectFavoritesId);
+  const [city, country] = address ? address.split(",") : ["Unknown", "Unknown"];
   const [functionality] = functionalities;
-  const formatType = `${type.slice(0, 1).toUpperCase()}${type
-    .slice(1)
-    .toLowerCase()}`;
-  const isFavorite = favoritesId.find((carId) => carId === car.id);
+  const formatType = `${type.slice(0, 1).toUpperCase()}${type.slice(1).toLowerCase()}`;
+  
+  const favorites = useSelector(selectFavorites);
+  const isFavorite = favorites.some(favorite => favorite.id === id);
 
   const [isOpen, setIsOpen] = useState(false);
 
-  const openModal = () => {
+  const openModal = (e) => {
+    e.stopPropagation();
     setIsOpen(true);
   };
 
-  const closeModal = () => {
+  const closeModal = (e) => {
+    e.stopPropagation();
     setIsOpen(false);
   };
-
 
   const handleFavoriteClick = (e) => {
     e.stopPropagation();
@@ -50,11 +49,11 @@ const CarsItem = ({car}) => {
 
   return (
     <>
-      <li className={s.card}>
-      <button className={s.icon} onClick={handleFavoriteClick}>
-        {isFavorite ? <GrFavorite className={s.iconFavorite} /> : <MdOutlineFavorite />}
-      </button>
-      <div className={s.img_wrap}>
+      <div className={s.card} onClick={openModal}>
+        <button className={s.icon} onClick={handleFavoriteClick}>
+          {isFavorite ? <GrFavorite className={s.iconFavorite} /> : <MdOutlineFavorite />}
+        </button>
+        <div className={s.img_wrap}>
           <img
             src={img}
             className={!img ? s.default_img : undefined}
@@ -63,9 +62,9 @@ const CarsItem = ({car}) => {
         </div>
         <div className={s.desc}>
           <div className={s.heading}>
-              <p>
-                {make}, {year}
-              </p>
+            <p>
+              {make}, {year}
+            </p>
             <p>{rentalPrice}</p>
           </div>
           <div className={s.bottom}>
@@ -74,7 +73,6 @@ const CarsItem = ({car}) => {
               <li>{country}</li>
               <li>{rentalCompany}</li>
             </ul>
-
             <ul className={s.bot_info}>
               <li>{formatType}</li>
               <li>{model}</li>
@@ -86,10 +84,10 @@ const CarsItem = ({car}) => {
         <LoadButton className={s.learnMore} onClick={openModal}>
           Learn more
         </LoadButton>
-        </li>
-      {isOpen && <CarDetails onClose={closeModal} car={car} />}
+      </div>
+      {isOpen && <Modal onClose={closeModal} car={car} />}
     </>
   );
-  };
+};
 
 export default CarsItem;
