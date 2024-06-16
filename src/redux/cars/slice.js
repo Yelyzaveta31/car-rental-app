@@ -12,7 +12,7 @@ const initialState = {
   filteredCars: [],
   page: 1,
   limit: 12,
-  total: 32,
+  total: 0,
   favorites: [],
   favoritesId: [],
   isLoading: false,
@@ -52,7 +52,7 @@ const carsSlice = createSlice({
         state.page = page;
         state.limit = limit;
         state.total = total;
-        state.cars = page === 1 ? data : [...state.cars, ...data];
+        state.cars =  page === 1 ? data : [...state.cars, ...data];
         state.isLoading = false;
       })
       .addCase(fetchCarsThunk.pending, state => {

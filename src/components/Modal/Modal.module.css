@@ -9,12 +9,12 @@
   }
   .content {
     max-height: calc(100vh - 40px);
+    width: 541px;
     overflow-y: auto; 
     position: relative;
     background-color: white;
     padding: 40px;
     overflow: hidden;
-    width: 541px;
     border-radius: 5px;
     h1 {
       font-size: 2rem;

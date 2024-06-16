@@ -6,6 +6,7 @@ import {
   selectFilteredCars,
   selectIsLoading,
   selectLimit,
+  selectPage,
 
 } from '../../redux/cars/selectors';
 import { setFilteredCars,setTotal } from '../../redux/cars/slice';
@@ -22,7 +23,7 @@ const Catalog = () => {
   const selectedBrand = useSelector(selectBrand);
   const isLoading = useSelector(selectIsLoading);
   const filteredCars = useSelector(selectFilteredCars);
-
+  const page = useSelector(selectPage); 
 
   useEffect(() => {
     dispatch(fetchCarsThunk({ page: 1, limit }));
@@ -42,13 +43,18 @@ const Catalog = () => {
     dispatch(setSelectedBrand(brand));
   };
 
+  const onLoadMore = () => {
+    dispatch(fetchCarsThunk({ page: page + 1, limit }));
+  };
+
+
 
   return (
     <div className={s.wrapper}>
       <SearchBar onFilter={handleFilter} />
       {isLoading && <p className={s.loader}>Loading...</p>}
       <CarsList cars={filteredCars} />
-      <LoadButton className={s.load_button}>
+      <LoadButton className={s.load_button} onClick={onLoadMore}>
         Load more
       </LoadButton>
     </div>

@@ -5,7 +5,7 @@ import { selectLimit, selectPage, selectTotal } from "../../redux/cars/selectors
 import { fetchCarsThunk } from "../../redux/cars/operations";
 import LoadButton from "../Button/LoadButton";
 
-const CarsList = ({cars}) => {
+const CarsList = ({ cars }) => {
   const dispatch = useDispatch();
   const total = useSelector(selectTotal);
   const page = useSelector(selectPage);
@@ -25,7 +25,9 @@ const CarsList = ({cars}) => {
         ))}
       </ul>
       {cars.length > 0 && cars.length < total && (
-        <LoadButton className={s.loadMoreButton} onClick={onLoadMore}/>
+        <LoadButton className={s.loadMoreButton} onClick={onLoadMore}>
+          Load more
+        </LoadButton>
       )}
     </div>
   );
