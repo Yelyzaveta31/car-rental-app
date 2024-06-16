@@ -1,30 +1,13 @@
 import { createSlice } from "@reduxjs/toolkit";
+import toast from "react-hot-toast";
 import { fetchCarsThunk } from "./operations";
 
 const initialState = {
-  cars:[],
+  cars: [],
   carBrands: [
-    'Lincoln',
-    'GMC',
-    'Hyundai',
-    'MINI',
-    'Bentley',
-    'Aston Martin',
-    'Pontiac',
-    'Lamborghini',
-    'Buick',
-    'Volvo',
-    'HUMMER',
-    'Subaru',
-    'Mitsubishi',
-    'Nissan',
-    'Mercedes-Benz',
-    'Audi',
-    'BMW',
-    'Chevrolet',
-    'Chrysler',
-    'Kia',
-    'Land Rover',
+    'Lincoln', 'GMC', 'Hyundai', 'MINI', 'Bentley', 'Aston Martin', 'Pontiac',
+    'Lamborghini', 'Buick', 'Volvo', 'HUMMER', 'Subaru', 'Mitsubishi', 'Nissan',
+    'Mercedes-Benz', 'Audi', 'BMW', 'Chevrolet', 'Chrysler', 'Kia', 'Land Rover',
   ],
   filteredCars: [],
   page: 1,
@@ -46,9 +29,11 @@ const carsSlice = createSlice({
       if (isFavorite) {
         state.favorites = state.favorites.filter((favCar) => favCar.id !== car.id);
         state.favoritesId = state.favoritesId.filter((id) => id !== car.id);
+        toast.error(`${car.make} successfully deleted from favorites`);
       } else {
         state.favorites.push(car);
         state.favoritesId.push(car.id);
+        toast.success(`Successfully added ${car.make} to favorites`);
       }
     },
     setPage: (state, action) => {
@@ -58,7 +43,7 @@ const carsSlice = createSlice({
       state.filteredCars = action.payload;
     },
     setTotal: (state, action) => {
-      state.total = action.payload; 
+      state.total = action.payload;
     },
   },
   extraReducers: (builder) => {
@@ -71,14 +56,14 @@ const carsSlice = createSlice({
         state.isLoading = false;
       })
       .addCase(fetchCarsThunk.pending, state => {
-        state.isLoading=true;
-        state.isError=false;
+        state.isLoading = true;
+        state.isError = false;
       })
       .addCase(fetchCarsThunk.rejected, (state, { payload }) => {
         state.isError = payload;
         state.isLoading = false;
-      })
-    },
+      });
+  },
 });
 
 export const { toggleFavorite, setPage, setFilteredCars, setTotal } = carsSlice.actions;

@@ -1,7 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 import toast from "react-hot-toast";
 
-
 const initialState = {
   favorites: [],
 };
@@ -16,9 +15,12 @@ const favoritesSlice = createSlice({
     },
     removeFromFavorites: (state, action) => {
       const removedItem = state.favorites.find((car) => car.id === action.payload);
-      state.favorites = state.favorites.filter((car) => car.id !== action.payload);
-      const { make } = removedItem;
-      toast.error(`${make} successfully deleted from favorites`);
+      if (removedItem) {
+        state.favorites = state.favorites.filter((car) => car.id !== action.payload);
+        toast.error(`${removedItem.make} successfully deleted from favorites`);
+      } else {
+        toast.error(`Item not found in favorites`);
+      }
     },
   },
 });
