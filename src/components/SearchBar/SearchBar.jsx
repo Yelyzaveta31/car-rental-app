@@ -2,8 +2,9 @@ import { useState } from 'react';
 import { useSelector } from 'react-redux';
 import Select from 'react-select';
 import { SearchBarStyles } from './SearchBarStyles';
-import { selectBrands } from '../../redux/cars/selectors';
 import s from './SearchBar.module.css';
+import { selectBrands } from '../../redux/cars/selectors';
+
 
 const SearchBar = ({ onFilter }) => {
   const carBrands = useSelector(selectBrands);

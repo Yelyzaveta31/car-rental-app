@@ -1,7 +1,8 @@
 import { useSelector } from "react-redux";
-import { selectFavorites } from "../../redux/cars/selectors";
+
 import CarsItem from "../../components/CarsItem/CarsItem";
 import s from "./Favorites.module.css";
+import { selectFavorites } from "../../redux/favorites/slice";
 
 const Favorites = () => {
   const favoritesCars = useSelector(selectFavorites);

@@ -1,13 +1,12 @@
 import { useDispatch, useSelector } from "react-redux";
 import s from "./CarsList.module.css";
 import CarsItem from "../CarsItem/CarsItem";
-import { selectCars, selectLimit, selectPage, selectTotal } from "../../redux/cars/selectors";
+import { selectLimit, selectPage, selectTotal } from "../../redux/cars/selectors";
 import { fetchCarsThunk } from "../../redux/cars/operations";
 import LoadButton from "../Button/LoadButton";
 
-const CarsList = () => {
+const CarsList = ({cars}) => {
   const dispatch = useDispatch();
-  const cars = useSelector(selectCars);
   const total = useSelector(selectTotal);
   const page = useSelector(selectPage);
   const limit = useSelector(selectLimit);

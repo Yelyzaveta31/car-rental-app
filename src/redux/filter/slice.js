@@ -5,6 +5,7 @@ const filtersSlice = createSlice({
   initialState: {
     selectedBrand: null,
   },
+  selectors: { selectBrand: state => state.selectedBrand},
   reducers: {
     setSelectedBrand: (state, action) => {
       state.selectedBrand = action.payload;
@@ -13,4 +14,5 @@ const filtersSlice = createSlice({
 });
 
 export const { setSelectedBrand } = filtersSlice.actions;
+export const { selectBrand } = filtersSlice.selectors;
 export const filtersReducer = filtersSlice.reducer;
