@@ -8,6 +8,8 @@
     z-index: 2000;
   }
   .content {
+    max-height: calc(100vh - 40px);
+    overflow-y: auto; 
     position: relative;
     background-color: white;
     padding: 40px;

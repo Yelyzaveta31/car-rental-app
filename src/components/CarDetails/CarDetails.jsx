@@ -26,7 +26,7 @@ const CarDetails = ({ car, onClose }) => {
   const ageNumber = age ? age.split(" ") : ["Unknown"];
 
   return (
-    <div className={s.modal}>
+    <>
       <div className={s.card}>
         <img className={s.img} src={img} alt={make} />
         <div className={s.content}>
@@ -112,7 +112,7 @@ const CarDetails = ({ car, onClose }) => {
       <button className={s.closeButton} onClick={onClose}>
         x
       </button>
-    </div>
+    </>
   );
 };
 

@@ -3,7 +3,6 @@
     max-width: 459px;
     display: flex;
     flex-direction: column;
-  
     gap: 14px;
   }
   .span {
@@ -53,7 +52,7 @@
     gap: 28px;
     max-width: 350px;
   }
- 
+
   .listWrapper {
     display: flex;
     flex-direction: column;
